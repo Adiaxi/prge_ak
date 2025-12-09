@@ -1,5 +1,4 @@
 import {Suspense} from "react";
-import Home from "./pages/Home";
 import './styles/style.scss';
 import {CircularProgress} from "@mui/material"
 

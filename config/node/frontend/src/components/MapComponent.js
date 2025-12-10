@@ -4,6 +4,7 @@ import TileLayer from "ol/layer/Tile";
 import OSM from 'ol/source/OSM';
 import View from "ol/View";
 import {useGeographic} from "ol/proj";
+import "ol/ol.css";
 
 function MapComponent(props) {
     const mapRef = useRef(null)

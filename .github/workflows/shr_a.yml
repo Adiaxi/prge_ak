@@ -22,9 +22,10 @@ jobs:
 
       - name: Uruchom środowisko docker-compose
         env:
+          ENV_NAME: ${{github.ref_name}}
           #DB
           POSTGRES_DB: ${{github.secrets.POSTGRES_DB}}
           POSTGRES_USER: ${{github.secrets.POSTGRES_USER}}
           POSTGRES_PASSWORD: ${{github.secrets.POSTGRES_PASSWORD}}
         run: |
-          docker-compose -f ./docker-compose/docker-compose-prge-local.yml -p remote-prge up --build -d
+          docker-compose -f ./docker-compose/docker-compose-prge-remote.yml -p remote-prge up --build -d

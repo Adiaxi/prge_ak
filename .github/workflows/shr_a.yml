@@ -5,8 +5,8 @@ on:
       - env-test
 
 permissions:
-  context: read
-  package: write
+  contents: read
+  packages: write
 
 jobs:
   build-and-push:

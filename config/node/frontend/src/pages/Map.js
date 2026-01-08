@@ -4,7 +4,9 @@ import MapComponent from "../components/MapComponent";
 function Map(props) {
     return (
         <div>
-            <MapComponent></MapComponent>
+
+            <MapComponent/>
+
         </div>
     );
 }

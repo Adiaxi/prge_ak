@@ -4,9 +4,9 @@ import UserCard from "../components/UserCard";
 function ListOfItems(props) {
 
     const [users, setUsers] = useState([]);
-
-    useEffect(()=>{
-        //http://localhost:10000/app/get_users
+    // https://jsonplaceholder.typicode.com/users
+    useEffect(() => {
+        // http://localhost:10000/app/get_users
         fetch('http://localhost:10000/app/get_users')
             .then(res => res.json())
             .then(res => {
@@ -14,20 +14,17 @@ function ListOfItems(props) {
                 setUsers(res)
             })
 
+        console.log('działa', users)
+    }, [])
 
-         console.log('działa')
-    },[])
-
-
-    console.log('TO JEST MÓJ USERS I JEGO AKTUALNA ZAWARTOŚĆ', users.data)
 
     return (
         <div>
             List of items
             <div>
                 {users.data?.map(user => <UserCard user={user}/>)}
+                {/*{users?.map(user => <UserCard user={user}/>)}*/}
             </div>
-
         </div>
     );
 }

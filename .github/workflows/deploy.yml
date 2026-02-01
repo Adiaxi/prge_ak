@@ -31,14 +31,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: npm
+          cache: node
           cache-dependency-path: config/node/frontend/package-lock.json
 
       - name: Install dependencies
-        run: npm install
+        run: node install
 
       - name: Build
-        run: npm run build
+        run: node run build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

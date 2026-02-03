@@ -20,5 +20,4 @@ function App() {
     );
 }
 
-//TODO  REMOVE dependency of react router IN CONTENERIZED VERSION OF APP
 export default App;

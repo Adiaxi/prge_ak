@@ -17,11 +17,10 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, prge]
     defaults:
       run:
         working-directory: config/node/frontend
-
 
     steps:
       - name: Checkout
@@ -31,14 +30,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: node
-          cache-dependency-path: config/node/frontend/package-lock.json
 
       - name: Install dependencies
-        run: node install
+        run: npm install
 
       - name: Build
-        run: node run build
+        run: npm run build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -49,7 +46,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, prge]
     needs: build
 
     steps:
